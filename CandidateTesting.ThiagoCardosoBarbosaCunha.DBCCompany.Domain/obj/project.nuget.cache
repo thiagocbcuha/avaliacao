@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "J0SMXveuoLQvUI0tRHSbFVBVAas402eK13h/qCNQAWHSXEE0IN4xEAwZXGYxgsc0M622fr0dGj4KyaICPwRjvQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\thiag\\source\\repos\\CandidateTesting.ThiagoCardosoBarbosaCunha\\CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain\\CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\5.0.0\\microsoft.extensions.configuration.abstractions.5.0.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.0\\microsoft.extensions.primitives.5.0.0.nupkg.sha512",
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}

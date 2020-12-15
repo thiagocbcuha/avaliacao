@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Console": {
+      "commandName": "Project",
+      "commandLineArgs": "%HOMEPATH%\\data\\in %HOMEPATH%\\data\\out"
+    }
+  }
+}

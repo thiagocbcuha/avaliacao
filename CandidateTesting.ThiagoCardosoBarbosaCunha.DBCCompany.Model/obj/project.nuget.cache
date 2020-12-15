@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "DL/X8xUTeRN3MX2gONf6qdJ4hr3bOpJUi4ll7sCkk1g5F4qbsyFjtFvRSQh/nRKbVuDF6uveZ/0K91/6S6G7RQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\thiag\\source\\repos\\CandidateTesting.ThiagoCardosoBarbosaCunha\\CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Model\\CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Model.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\thiag\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512"
+  ],
+  "logs": []
+}
