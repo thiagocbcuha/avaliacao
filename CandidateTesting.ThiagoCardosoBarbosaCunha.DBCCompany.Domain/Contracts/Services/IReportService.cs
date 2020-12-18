@@ -9,6 +9,10 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Contracts
 {
     public interface IReportService
     {
-        Task<bool> GetStats(string pathIn, string pathOut);
+        Task<FileLine> GetStats(RetrivedDataModel retrived);
+        int GetSalesmanLength(IEnumerable<SalesmanModel> salesmen);
+        int GetCustomerLength(IEnumerable<CustomerModel> customers);
+        int GetMostExpensive(IEnumerable<SalesDataModel> salesData);
+        string GetWorseSalesman(IEnumerable<SalesDataModel> salesData);
     }
 }

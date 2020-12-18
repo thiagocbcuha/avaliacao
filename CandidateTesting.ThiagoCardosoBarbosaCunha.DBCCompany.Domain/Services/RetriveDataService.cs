@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Services
 {
-    public class RetriveDataService : IRetriveDataService
+    public class RetrievedDataService : IRetrieveDataService
     {
         private readonly IReader _reader;
         private readonly string _defaultType;
 
-        public RetriveDataService(IReader reader, IConfiguration configuration)
+        public RetrievedDataService(IReader reader, IConfiguration configuration)
         {
             _reader = reader;
             _defaultType = configuration.GetSection("defaultType").Value;
