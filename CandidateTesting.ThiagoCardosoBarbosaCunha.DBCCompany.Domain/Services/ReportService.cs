@@ -14,55 +14,58 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Services
 {
     public class ReportService : IReportService
     {
-        private readonly string _format;
-        private readonly IWriter _writer;
-        private readonly ITransformerService _transformerService;
-
-        public ReportService(IConfiguration configuration, IWriter writer, ITransformerService transformerService)
+        public async Task<FileLine> GetStats(RetrivedDataModel retrived)
         {
-            _writer = writer;
-            _transformerService = transformerService;
-            _format = configuration.GetSection("FormatToFile").Value;
+            try
+            {
+                var fileLine = new FileLine();
+                if (retrived != null)
+                {
+                    // Quantidade de vendedores
+                    fileLine.SalesmanCount = GetSalesmanLength(retrived.Salesmans);
+
+                    // Quantidade de clientes
+                    fileLine.CustomerCount = GetCustomerLength(retrived.Custumers);
+
+                    // Id da venda mais cara
+                    fileLine.MostExpensive = GetMostExpensive(retrived.SalesData);
+
+                    // Nome do pior vendedor
+                    fileLine.WorseSalesman = GetWorseSalesman(retrived.SalesData);
+                }
+
+                return await Task.FromResult(fileLine);
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
-        public async Task<bool> GetStats(string pathIn, string pathOut)
+        public int GetSalesmanLength(IEnumerable<SalesmanModel> salesmen) 
         {
-            var fileLine = new FileLine();
-            var stringBuilder = new StringBuilder();
+            return salesmen.Count();
+        }
 
-            if (await _transformerService.Execute(pathIn))
-            {
-                // Quantidade de vendedores
-                fileLine.SalesmanCount = _transformerService.Salesmans.Count;
+        public int GetCustomerLength(IEnumerable<CustomerModel> customers)
+        {
+            return customers.Count();
+        }
 
-                // Quantidade de clientes
-                fileLine.CustomerCount = _transformerService.Custumers.Count;
+        public int GetMostExpensive(IEnumerable<SalesDataModel> salesData)
+        {
+            return salesData
+               .Select(i => i.Sales.OrderByDescending(ii => ii.Price).First())
+               .OrderByDescending(i => i.Price)
+               .First().ItemID;
+        }
 
-                // Id da venda mais cara
-                fileLine.MostExpensive = _transformerService.SalesData
-                    .Select(i => i.Sales.OrderByDescending(ii => ii.Price).First())
-                    .OrderByDescending(i => i.Price)
-                    .First().ItemID;
-
-                // Nome do pior vendedor
-                fileLine.WorseSalesman = _transformerService.SalesData
-                    .Select(i => new { i.SalesmanName, Profit = i.Sales.Select(ii => ii.Quantity * ii.Price).Sum() })
-                    .OrderBy(i => i.Profit)
-                    .First().SalesmanName;
-
-                stringBuilder.AppendLine(fileLine.GetDescription(_format));
-                stringBuilder.AppendLine(fileLine.ToString(_format)); 
-            }
-
-            var logRequest = new LogRequest
-            {
-                Path = pathOut,
-                Content = stringBuilder
-            };
-
-            var logResponse = await _writer.SaveData(logRequest);
-
-            return logResponse.Result;
+        public string GetWorseSalesman(IEnumerable<SalesDataModel> salesData)
+        {
+            return salesData
+                .Select(i => new { i.SalesmanName, Profit = i.Sales.Select(ii => ii.Quantity * ii.Price).Sum() })
+                .OrderBy(i => i.Profit)
+                .First().SalesmanName;
         }
     }
 }

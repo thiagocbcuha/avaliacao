@@ -16,7 +16,7 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Console
 
             using IServiceScope serviceScope = host.Services.CreateScope();
             IServiceProvider provider = serviceScope.ServiceProvider;
-            provider.GetRequiredService<IReportService>().GetStats(args[0], args[1]);
+            provider.GetRequiredService<IInputOutputDataService>().Execute(args[0], args[1]);
 
             return host.RunAsync();
         }

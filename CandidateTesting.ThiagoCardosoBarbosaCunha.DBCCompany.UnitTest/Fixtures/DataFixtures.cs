@@ -33,12 +33,26 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.UnitTest.Fixture
             var stringBuilder = new StringBuilder();
 
             foreach (var fileLine in fileLines)
-                stringBuilder.AppendLine(fileLine.ToString("{ResponseSize}|{StatusCode}|{CacheStatus}|\"{HttpMethod} {UriPath} HTTP/1.1\"|{TimeTaken}"));
+                stringBuilder.AppendLine(fileLine.ToString("{WorseSalesman}\t{MostExpensive}\t{SalesmanCount}\t{CustomerCount}"));
 
             return stringBuilder;
         }
 
-        
+        public static RetrivedDataModel GetRetrivedDataModel(int qtdCustomer, int qtdSalesman, int qtdSalesdata) 
+        {
+            var fixture = new Fixture();
+            var salesmen = fixture.Build<SalesmanModel>().CreateMany(qtdSalesman);
+            var customers = fixture.Build<CustomerModel>().CreateMany(qtdCustomer);
+            var saledatas = fixture.Build<SalesDataModel>().CreateMany(qtdSalesdata);
+
+            var result = new RetrivedDataModel();
+            result.Salesmans.AddRange(salesmen);
+            result.Custumers.AddRange(customers);
+            result.SalesData.AddRange(saledatas);
+
+            return result;
+        }
+
         public static IEnumerable<string> GetStrings(int quantity) => new Fixture().CreateMany<string>(10);
 
         public static void SetDefaultConfiguration(Mock<IConfiguration> _configuration) 

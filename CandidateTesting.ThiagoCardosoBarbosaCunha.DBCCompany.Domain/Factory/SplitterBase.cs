@@ -1,5 +1,6 @@
 ﻿using CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Contracts.Factory;
 using CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Extension;
+using CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Model.Factory;
 using System;
 using System.Collections.Generic;
 using System.Globalization;

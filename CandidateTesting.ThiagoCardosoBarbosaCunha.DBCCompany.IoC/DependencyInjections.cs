@@ -22,10 +22,11 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.IoC
 
         private static IServiceCollection AddServices(this IServiceCollection services) 
         {
-            services.AddScoped<IBuilderSplitter, Domain.Factory.Builder>();
+            services.AddScoped<IBuilderSplitter, Domain.Factory.BuilderSplitter>();
             services.AddScoped<IReportService, ReportService>();
-            services.AddScoped<ITransformerService, TransformerService>();
-            services.AddScoped<IRetriveDataService, RetriveDataService>();
+            services.AddScoped<IFileProcessorService, FileProcessorService>();
+            services.AddScoped<IRetrieveDataService, RetrievedDataService>();
+            services.AddScoped<IInputOutputDataService, InputOutputDataService>();
 
             return services;
         }

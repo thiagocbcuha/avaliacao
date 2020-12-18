@@ -12,4 +12,8 @@
     <ProjectReference Include="..\CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Model\CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Factory\Model\" />
+  </ItemGroup>
+
 </Project>

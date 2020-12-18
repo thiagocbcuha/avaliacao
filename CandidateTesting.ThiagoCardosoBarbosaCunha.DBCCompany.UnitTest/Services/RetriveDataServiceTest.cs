@@ -18,7 +18,7 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.UnitTest.Service
     {
         private Mock<IReader> _reader;
         private Mock<IConfiguration> _configuration;
-        private IRetriveDataService _retrivedataservice;
+        private IRetrieveDataService _retrivedataservice;
 
         [SetUp]
         public void Setup() 
@@ -26,7 +26,7 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.UnitTest.Service
             _reader = new Mock<IReader>();
             _configuration = new Mock<IConfiguration>();
             SetDefaultConfiguration(_configuration);
-            _retrivedataservice = new RetriveDataService(_reader.Object, _configuration.Object);
+            _retrivedataservice = new RetrievedDataService(_reader.Object, _configuration.Object);
         }
 
         [Test]

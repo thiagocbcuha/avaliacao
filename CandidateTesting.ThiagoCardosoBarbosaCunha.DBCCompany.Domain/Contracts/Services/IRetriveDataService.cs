@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Contracts.Services
 {
-    public interface IRetriveDataService
+    public interface IRetrieveDataService
     {
         Task<IEnumerable<string>> GetData(string path);
     }
