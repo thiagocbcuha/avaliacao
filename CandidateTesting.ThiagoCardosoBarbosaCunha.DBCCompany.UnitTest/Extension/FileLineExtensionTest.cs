@@ -28,12 +28,23 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.UnitTest
                 WorseSalesman = "Teste"
             };
 
-            var result = fileLine.ToString("{CustomerCount} {SalesmanCount}  {MostExpensive}  {WorseSalesman}");
+            var result = fileLine.ToString("{CustomerCount}ç{SalesmanCount}ç{MostExpensive}ç{WorseSalesman}");
 
             result.Contains(fileLine.WorseSalesman).Should().BeTrue();
             result.Contains(fileLine.CustomerCount.ToString()).Should().BeTrue();
             result.Contains(fileLine.SalesmanCount.ToString()).Should().BeTrue();
             result.Contains(fileLine.MostExpensive.ToString()).Should().BeTrue();
+        }
+
+        [Test]
+        public void ShouldBeCorrectDescription()
+        {
+            var fileLine = new FileLine();
+
+            var validResult = $"Nº ClientesçNº VendedoresçVenda Mais CaraçPior Vendedor";
+            var result = fileLine.GetDescription("{CustomerCount}ç{SalesmanCount}ç{MostExpensive}ç{WorseSalesman}");
+
+            result.Should().Be(validResult);
         }
     }
 }

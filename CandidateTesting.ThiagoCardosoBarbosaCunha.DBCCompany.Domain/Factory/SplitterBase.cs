@@ -26,6 +26,7 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Factory
                 return null;
             }
         }
+
         public TOut GetValue<TOut>(string name, IEnumerable<string> values)
         {
             var value = typeof(TIn).GetProperty(name).GetValueFromLine(values);
