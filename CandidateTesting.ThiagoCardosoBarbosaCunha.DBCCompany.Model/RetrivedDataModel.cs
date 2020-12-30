@@ -4,7 +4,7 @@ using System.Text;
 
 namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Model
 {
-    public class RetrivedDataModel
+    public class RetrievedDataModel
     {
         public List<CustomerModel> Custumers { get; private set; }
             = new List<CustomerModel>();

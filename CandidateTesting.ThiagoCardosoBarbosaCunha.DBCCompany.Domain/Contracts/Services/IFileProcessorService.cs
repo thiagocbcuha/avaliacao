@@ -8,6 +8,6 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Contracts
 {
     public interface IFileProcessorService
     {
-        Task<RetrivedDataModel> ExecuteProcess(string pathIn);
+        Task<RetrievedDataModel> ExecuteProcess(string pathIn);
     }
 }

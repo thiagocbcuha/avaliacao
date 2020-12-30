@@ -27,11 +27,11 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Services
             _builderSplitter = builderSplitter;
             _retrieveDataService = retriveDataService;
         }
-        public async Task<RetrivedDataModel> ExecuteProcess(string pathIn)
+        public async Task<RetrievedDataModel> ExecuteProcess(string pathIn)
         {
             try
             {
-                var retrievedDataModel = new RetrivedDataModel();
+                var retrievedDataModel = new RetrievedDataModel();
                 var fileLines = new List<FileLine>();
                 var lines = await _retrieveDataService.GetData(pathIn);
 

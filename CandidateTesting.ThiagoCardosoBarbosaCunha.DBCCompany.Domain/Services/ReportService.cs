@@ -14,7 +14,7 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.Domain.Services
 {
     public class ReportService : IReportService
     {
-        public async Task<FileLine> GetStats(RetrivedDataModel retrived)
+        public async Task<FileLine> GetStats(RetrievedDataModel retrived)
         {
             try
             {

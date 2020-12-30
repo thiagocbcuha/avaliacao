@@ -38,14 +38,14 @@ namespace CandidateTesting.ThiagoCardosoBarbosaCunha.DBCCompany.UnitTest.Fixture
             return stringBuilder;
         }
 
-        public static RetrivedDataModel GetRetrivedDataModel(int qtdCustomer, int qtdSalesman, int qtdSalesdata) 
+        public static RetrievedDataModel GetRetrivedDataModel(int qtdCustomer, int qtdSalesman, int qtdSalesdata) 
         {
             var fixture = new Fixture();
             var salesmen = fixture.Build<SalesmanModel>().CreateMany(qtdSalesman);
             var customers = fixture.Build<CustomerModel>().CreateMany(qtdCustomer);
             var saledatas = fixture.Build<SalesDataModel>().CreateMany(qtdSalesdata);
 
-            var result = new RetrivedDataModel();
+            var result = new RetrievedDataModel();
             result.Salesmans.AddRange(salesmen);
             result.Custumers.AddRange(customers);
             result.SalesData.AddRange(saledatas);
